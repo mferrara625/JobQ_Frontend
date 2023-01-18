@@ -37,6 +37,10 @@ const NavBar = (props) => {
             <NavButton to="/" label='Home'/>
             <NavButton to="/signin" label='Login'/>
             <NavButton to="/signup" label='Sign Up'/>
+            <NavButton to="/createJobPost" label='Create Job Post'/>
+            <NavButton to="/jobListings" label='Jobs'/>
+
+
 
             </div>
         </div>

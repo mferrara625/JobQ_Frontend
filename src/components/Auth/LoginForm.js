@@ -10,7 +10,7 @@ const LoginForm = (props) => {
     const{onSubmit, onChange, user} = props;
 
     const handleChange = (e) => {
-        props.onChange(e.target.id, e.target.value);
+        onChange(e.target.id, e.target.value);
       }
 
     return (
