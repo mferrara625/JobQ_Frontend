@@ -1,7 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 import NavButton from "./NavButton";
 
 const NavBar = (props) => {
+
+    const [auth] = useContext(AuthContext);
     return (
         <Fragment>
         <div style={{
@@ -37,7 +40,10 @@ const NavBar = (props) => {
             <NavButton to="/" label='Home'/>
             <NavButton to="/signin" label='Login'/>
             <NavButton to="/signup" label='Sign Up'/>
+            {auth.roles.includes("ROLE_EMPLOYER") ?
             <NavButton to="/createJobPost" label='Create Job Post'/>
+        : " "}
+
             <NavButton to="/jobListings" label='Jobs'/>
 
 

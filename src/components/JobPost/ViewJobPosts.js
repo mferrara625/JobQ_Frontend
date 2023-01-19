@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import RegSplash from '../../assets/regSplash.jpg'
 import { apiHostUrl } from '../../config';
+import Button from '../common/Button';
 import Container from '../common/Container';
 import Splash from '../common/Splash';
 import { AuthContext } from '../Providers/AuthProvider';
@@ -33,10 +34,27 @@ const viewJobPosts = async () => {
 viewJobPosts();
 }, []);
 
+const applyForJob = async (id) => {
+    console.log("AUTH TEST:" + auth.token);
+    try {
+        const res = await axios.put(`${apiHostUrl}/JobPost/apply/${id}`, {
+            headers : {
+            Authorization: `Bearer ${auth.token}`
+        }
+    });
+        alert(res.data);
+        console.log(res.data);
+    } catch(err) {
+        console.error(err.response ? err.response.data : err.message)
+    }
+}
+
 const displayJobs = () => {
 
     return jobList.map(job => {
-        return <JobPost job = {job} key = {job.id}/>
+        return <div> <JobPost job = {job} key = {job.id}/>
+                    <Button onClick={() => applyForJob(job.id)} >Apply</Button>
+        </div>
     })
 
 }
