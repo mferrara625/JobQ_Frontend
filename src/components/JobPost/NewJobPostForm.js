@@ -4,6 +4,7 @@ import Button from '../common/Button';
 import Container from '../common/Container';
 import InlineInputContainer from '../common/InlineInputContainer';
 import Input from '../common/Input';
+import TextArea from '../common/TextArea';
 
 const NewJobPostForm = (props) => {
     const{onSubmit, onChange, job} = props;
@@ -27,13 +28,12 @@ const NewJobPostForm = (props) => {
             />
             </InlineInputContainer>
             <InlineInputContainer>
-            <Input
+            <TextArea
                 name="content"
                 id="content"
                 value={job.content}
                 placeholder={"Description"}
                 onChange={handleChange}
-                type="text"
                 required
             />
             </InlineInputContainer>

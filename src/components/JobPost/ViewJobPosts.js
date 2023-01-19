@@ -34,10 +34,13 @@ const viewJobPosts = async () => {
 viewJobPosts();
 }, []);
 
-const applyForJob = async (id) => {
+async function applyForJob(id){
     console.log("AUTH TEST:" + auth.token);
+    console.log(auth.id);
+    console.log(auth.roles);
+    console.log("ID TEST: " + id)
     try {
-        const res = await axios.put(`${apiHostUrl}/JobPost/apply/${id}`, {
+        const res = await axios.put(`${apiHostUrl}/JobPost/apply/${id}`, {} , {
             headers : {
             Authorization: `Bearer ${auth.token}`
         }
@@ -52,9 +55,10 @@ const applyForJob = async (id) => {
 const displayJobs = () => {
 
     return jobList.map(job => {
-        return <div> <JobPost job = {job} key = {job.id}/>
-                    <Button onClick={() => applyForJob(job.id)} >Apply</Button>
-        </div>
+        return <div style={{flexDirection:'column'}}> 
+                    <JobPost job = {job} key = {job.id}/>
+                    <Button onClick={() => applyForJob(job.id)} > Apply </Button>
+               </div>
     })
 
 }
