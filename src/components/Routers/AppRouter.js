@@ -6,6 +6,7 @@ import Register from '../Auth/Register';
 import Login from '../Auth/Login';
 import CreateJobPost from '../JobPost/CreateJobPost';
 import ViewJobPosts from '../JobPost/ViewJobPosts';
+import ViewJobPostWithApplicants from '../JobPost/ViewJobPostWithApplicants';
 
 const AppRouter = () => {
     return (
@@ -19,6 +20,8 @@ const AppRouter = () => {
             <Route path="/signin" element={<Login />} />
             <Route path="/createJobPost" element={<CreateJobPost />} />
             <Route path="/jobListings" element={<ViewJobPosts/>} />
+            <Route path="/viewCompanyListings" element={<ViewJobPostWithApplicants/>} />
+
 
         </Routes>
         </div>                 

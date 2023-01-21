@@ -11,7 +11,7 @@ import RegSplash from "../../assets/regSplash.jpg";
 const CreateJobPost = () => {
     const [job, setJob] = useState({
         title: "",
-        content: ""  // maxLength 255 characters
+        content: ""  // maxLength 1020 characters
     })
 
     const [auth] = useContext(AuthContext);

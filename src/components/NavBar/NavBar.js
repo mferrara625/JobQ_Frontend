@@ -42,7 +42,12 @@ const NavBar = (props) => {
             <NavButton to="/signup" label='Sign Up'/>
             {auth.roles.includes("ROLE_EMPLOYER") ?
             <NavButton to="/createJobPost" label='Create Job Post'/>
-        : " "}
+            : " "}
+
+            {auth.roles.includes("ROLE_EMPLOYER") ?
+            <NavButton to="/viewCompanyListings/" label='View Your Jobs'/>
+            : " "}
+
 
             <NavButton to="/jobListings" label='Jobs'/>
 

@@ -6,7 +6,7 @@ const JobPost = (props) => {
     const{title, content, employer} = props.job;
 
   return (
-    <BorderCard style={{flexDirection: "column", minWidth: "325px"}}>
+    <BorderCard style={{flexDirection: "column", minWidth: "500px"}}>
         <h1>{title}</h1>
         <p>{content}</p>
     </BorderCard>
