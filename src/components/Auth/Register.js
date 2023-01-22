@@ -56,7 +56,7 @@ const Register = (props) => {
                 roles: res.data.roles,
                 id: res.data.id
             })
-            navigate("/");
+            navigate("/continueReg");
         } catch (err) {
             console.error(err.response.data);
         }
