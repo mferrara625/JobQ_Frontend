@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import RegSplash from '../../assets/regSplash.jpg'
 import { apiHostUrl } from '../../config';
 import Applicant from '../Applicant/Applicant';
+import Button from '../common/Button';
 import Container from '../common/Container';
 import Splash from '../common/Splash';
 import { AuthContext } from '../Providers/AuthProvider';
@@ -15,6 +17,8 @@ const ViewJobPostWithApplicants = () => {
 const [jobList, setJobList] = useState([]);
 
 const [auth] = useContext(AuthContext);
+
+const navigate = useNavigate();
 
 useEffect(() => {
 
@@ -34,6 +38,20 @@ const viewJobPosts = async () => {
 viewJobPosts();
 }, []);
 
+const deleteJobPost = async (jobId) => {
+
+    try {
+        const res = await axios.delete(`${apiHostUrl}/JobPost/${jobId}`, {
+            headers : {
+            Authorization: `Bearer ${auth.token}`
+        }
+    });
+        console.log(res.data);
+    } catch(err) {
+        console.error(err.response ? err.response.data : err.message)
+    }
+    navigate("/");
+}
 
 
 const displayJobs = () => {
@@ -41,6 +59,7 @@ const displayJobs = () => {
     return jobList.map(job => {
         return <div style={{flexDirection:'column'}}> 
                     <JobPost job = {job} key = {job.id}/>
+                    <Button style={{backgroundColor: "red"}} onClick={()=>{deleteJobPost(job.id)}}>Delete</Button>
                         APPLICANTS:
                     {job.applicants.map(appl => {
                         return <div style={{ justifyContent: "center"}}>

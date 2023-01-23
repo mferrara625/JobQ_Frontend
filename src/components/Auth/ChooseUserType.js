@@ -22,8 +22,6 @@ const ChooseUserType = () => {
     const navigate = useNavigate();
 
     const regEmployer = async (data) => {
-        console.log("REGEMPLOYER NAME TEST ###: " + employer.companyName)
-        console.log("TEST AUTH IN REGEMPLOYER: " + auth.token);
         try {
             const res = await axios.post(`${apiHostUrl}/Employer/`, data, {
                 headers : {
