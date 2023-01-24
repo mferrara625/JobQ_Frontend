@@ -8,6 +8,7 @@ import CreateJobPost from '../JobPost/CreateJobPost';
 import ViewJobPosts from '../JobPost/ViewJobPosts';
 import ViewJobPostWithApplicants from '../JobPost/ViewJobPostWithApplicants';
 import ChooseUserType from '../Auth/ChooseUserType';
+import ViewAppliedJobs from '../JobPost/ViewAppliedJobs';
 
 const AppRouter = () => {
     return (
@@ -23,6 +24,8 @@ const AppRouter = () => {
             <Route path="/jobListings" element={<ViewJobPosts/>} />
             <Route path="/viewCompanyListings" element={<ViewJobPostWithApplicants/>} />
             <Route path="/continueReg" element={<ChooseUserType/>} />
+            <Route path="/viewAppliedJobs" element={<ViewAppliedJobs/>} />
+
 
 
 
