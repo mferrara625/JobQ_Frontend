@@ -11,7 +11,8 @@ import RegSplash from "../../assets/regSplash.jpg";
 const CreateJobPost = () => {
     const [job, setJob] = useState({
         title: "",
-        content: ""  // maxLength 1020 characters
+        content: "",  // maxLength 1020 characters
+        location: ""
     })
 
     const [auth] = useContext(AuthContext);
@@ -30,8 +31,6 @@ const CreateJobPost = () => {
     }
 
     const createJobPost = async (data) => {
-        console.log("AUTH TEST IN CREATEJOBPOST: " + auth.token);
-        console.log("DATA TEST IN CREATEJOBPOST: " + data.title + "\n" + data.content);
         try {
             const res = await axios.post(`${apiHostUrl}/JobPost/`, data, {
                 headers : {

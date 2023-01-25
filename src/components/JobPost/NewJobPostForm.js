@@ -28,6 +28,17 @@ const NewJobPostForm = (props) => {
             />
             </InlineInputContainer>
             <InlineInputContainer>
+            <Input
+                name="location"
+                id="location"
+                value={job.location}
+                placeholder={"Location"}
+                onChange={handleChange}
+                type="text"
+                required
+            />
+            </InlineInputContainer>
+            <InlineInputContainer>
             <TextArea
                 name="content"
                 id="content"
