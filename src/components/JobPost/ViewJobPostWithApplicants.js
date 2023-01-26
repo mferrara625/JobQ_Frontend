@@ -59,7 +59,9 @@ const displayJobs = () => {
     return jobList.map(job => {
         return <div style={{flexDirection:'column'}}> 
                     <JobPost job = {job} key = {job.id}/>
+                    <Button style={{backgroundColor: "grey"}} onClick={()=>{navigate(`/editJobPost/${job.id}`)}}>Edit</Button>
                     <Button style={{backgroundColor: "red"}} onClick={()=>{deleteJobPost(job.id)}}>Delete</Button>
+
                         APPLICANTS:
                     {job.applicants.map(appl => {
                         return <div style={{ justifyContent: "center"}}>
